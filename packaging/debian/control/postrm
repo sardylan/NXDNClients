@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ "${1}" != "purge" ]; then
+  exit 0
+fi
+
+userdel @SYSTEM_USER@ || true
+
+rm -rf /var/log/nxdn
+rm -rf /var/lib/nxdn
+rm -rf /etc/nxdn
+
+exit 0

@@ -1,0 +1,16 @@
+[Unit]
+Description=NXDN Reflector
+After=network.target
+Documentation=https://github.com/g4klx/NXDNClients
+
+[Service]
+Type=simple
+User=nxdn
+Group=nxdn
+WorkingDirectory=/var/lib/nxdn
+LogsDirectory=@CMAKE_INSTALL_LOCALSTATEDIR@/log/nxdn
+ExecStart=@CMAKE_INSTALL_FULL_BINDIR@/NXDNReflector @CMAKE_INSTALL_SYSCONFDIR@/NXDNReflector.ini
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
