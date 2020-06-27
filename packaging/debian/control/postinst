@@ -14,7 +14,7 @@ adduser \
 
 mkdir -p @CMAKE_INSTALL_LOCALSTATEDIR@/log/nxdn
 chown -R @SYSTEM_USER@:adm @CMAKE_INSTALL_LOCALSTATEDIR@/log/nxdn
-chmod -R 02750 @CMAKE_INSTALL_LOCALSTATEDIR@/log/nxdn
+chmod -R 02755 @CMAKE_INSTALL_LOCALSTATEDIR@/log/nxdn
 
 for F in /etc/nxdn/*.ini; do
   cp "${F}" "${F}-vanilla"
@@ -24,7 +24,7 @@ chown -R @SYSTEM_USER@:@SYSTEM_USER@ /var/lib/@SYSTEM_USER@
 chmod -R 0644 /var/lib/@SYSTEM_USER@/*
 
 chown -R root:@SYSTEM_USER@ @CMAKE_INSTALL_SYSCONFDIR@
-chmod 0750 @CMAKE_INSTALL_SYSCONFDIR@
-chmod 0640 @CMAKE_INSTALL_SYSCONFDIR@/*
+chmod 0755 @CMAKE_INSTALL_SYSCONFDIR@
+chmod 0644 @CMAKE_INSTALL_SYSCONFDIR@/*
 
 systemctl daemon-reload
