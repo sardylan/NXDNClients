@@ -17,7 +17,7 @@ chown -R @SYSTEM_USER@:adm @CMAKE_INSTALL_LOCALSTATEDIR@/log/nxdn
 chmod -R 02755 @CMAKE_INSTALL_LOCALSTATEDIR@/log/nxdn
 
 for F in @CMAKE_INSTALL_SYSCONFDIR@/*.ini-vanilla; do
-  F_NAME="${F//-vanilla//}"
+  F_NAME="${F/-vanilla/}"
   if [ ! -e "${F_NAME}" ]; then
     cp "${F}" "${F_NAME}"
   fi
