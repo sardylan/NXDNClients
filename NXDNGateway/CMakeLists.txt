@@ -1,4 +1,4 @@
-pkg_check_modules(GPS REQUIRED IMPORTED_TARGET libgps)
+pkg_check_modules(GPS REQUIRED IMPORTED_TARGET libgps>=3.20)
 
 add_executable(NXDNGateway
         APRSWriter.cpp APRSWriter.h
