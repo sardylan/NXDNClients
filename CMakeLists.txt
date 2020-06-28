@@ -17,14 +17,12 @@ find_package(PkgConfig REQUIRED)
 find_package(Threads REQUIRED)
 message("Threads flags: ${CMAKE_THREAD_LIBS_INIT}")
 
-execute_process(COMMAND /bin/bash "${CMAKE_CURRENT_SOURCE_DIR}/cmake/git_version.sh"
+execute_process(COMMAND bash "${CMAKE_CURRENT_SOURCE_DIR}/cmake/git_version.sh"
         WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
         OUTPUT_VARIABLE GIT_TAG)
+string(REGEX REPLACE "\n$" "" GIT_TAG "${GIT_TAG}")
 
-set(NXDN_VERSION "${GIT_TAG}")
-string(STRIP NXDN_VERSION, ${NXDN_VERSION})
-string(REGEX REPLACE "\n$" "" NXDN_VERSION "${NXDN_VERSION}")
-
+set(NXDN_VERSION "1:1-${GIT_TAG}-1")
 message("NXDN Version: ${NXDN_VERSION}")
 
 add_subdirectory(NXDNGateway)

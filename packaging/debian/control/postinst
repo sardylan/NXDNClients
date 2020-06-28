@@ -16,8 +16,10 @@ mkdir -p @CMAKE_INSTALL_LOCALSTATEDIR@/log/nxdn
 chown -R @SYSTEM_USER@:adm @CMAKE_INSTALL_LOCALSTATEDIR@/log/nxdn
 chmod -R 02755 @CMAKE_INSTALL_LOCALSTATEDIR@/log/nxdn
 
-for F in /etc/nxdn/*.ini; do
-  cp "${F}" "${F}-vanilla"
+for F in @CMAKE_INSTALL_SYSCONFDIR@/*.ini; do
+  if [ ! -e "${F}-vanilla" ]; then
+    cp "${F}" "${F}-vanilla"
+  fi
 done
 
 chown -R @SYSTEM_USER@:@SYSTEM_USER@ /var/lib/@SYSTEM_USER@
