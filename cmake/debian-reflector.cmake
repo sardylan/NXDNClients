@@ -4,7 +4,8 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/packaging/NXDNReflector.ini
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/packaging/NXDNReflector.ini
         DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}
-        PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+        RENAME NXDNReflector.ini-vanilla
+        PERMISSIONS OWNER_READ GROUP_READ WORLD_READ
         COMPONENT NXDNReflector)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/packaging/debian/systemd/nxdn-reflector.service

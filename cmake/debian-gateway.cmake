@@ -4,7 +4,8 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/packaging/NXDNGateway.ini
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/packaging/NXDNGateway.ini
         DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}
-        PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+        RENAME NXDNGateway.ini-vanilla
+        PERMISSIONS OWNER_READ GROUP_READ WORLD_READ
         COMPONENT NXDNGateway)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/packaging/debian/systemd/nxdn-gateway.service
