@@ -1,5 +1,11 @@
 set(SYSTEM_USER nxdn)
 
+set (NXDN_DEB_VERSION_EPOCH 1)
+set (NXDN_DEB_VERSION_RELEASE 1)
+
+set(NXDN_DEB_VERSION "${NXDN_DEB_VERSION_EPOCH}:${NXDN_VERSION}-${NXDN_DEB_VERSION_RELEASE}")
+message("DEB Version: ${NXDN_DEB_VERSION}")
+
 include(cmake/debian-commons.cmake)
 include(cmake/debian-gateway.cmake)
 include(cmake/debian-parrot.cmake)
