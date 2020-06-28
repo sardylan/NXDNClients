@@ -7,9 +7,10 @@ Documentation=https://github.com/g4klx/NXDNClients
 Type=simple
 User=@SYSTEM_USER@
 Group=@SYSTEM_USER@
+EnvironmentFile=-/etc/default/nxdn-parrot
 WorkingDirectory=/var/lib/nxdn
 LogsDirectory=@CMAKE_INSTALL_LOCALSTATEDIR@/log/nxdn
-ExecStart=@CMAKE_INSTALL_FULL_BINDIR@/NXDNParrot
+ExecStart=@CMAKE_INSTALL_FULL_BINDIR@/NXDNParrot $NXDN_PARROT_PORT
 Restart=always
 
 [Install]

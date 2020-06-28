@@ -39,7 +39,35 @@ endif ()
 
 include(CPack)
 
+cpack_add_component_group(NXDNClients
+        DISPLAY_NAME "NXDN Clients"
+        DESCRIPTION "These programs are clients for the NXDN networking built into the MMDVM Host"
+        EXPANDED
+        BOLD_TITLE)
+
+cpack_add_component(NXDNCommons
+        DISPLAY_NAME "NXDN Commons"
+        DESCRIPTION "Common files and configurations"
+        GROUP NXDNClients
+        REQUIRED)
+
+cpack_add_component(NXDNGateway
+        DISPLAY_NAME "NXDN Gateway"
+        DESCRIPTION "The Gateway allows for use of NXDN Talk Groups to control the access to the various NXDN reflectors"
+        GROUP NXDNClients
+        DEPENDS NXDNCommons
+        REQUIRED)
+
+cpack_add_component(NXDNParrot
+        DISPLAY_NAME "NXDN Parrot"
+        DESCRIPTION "The Parrot is very simple minded and can only handle one client at a time"
+        GROUP NXDNClients
+        DEPENDS NXDNCommons
+        REQUIRED)
+
 cpack_add_component(NXDNReflector
         DISPLAY_NAME "NXDN Reflector"
-        DESCRIPTION "The Reflector is used as a single talk group in the same way that it is with P25."
+        DESCRIPTION "The Reflector is used as a single talk group in the same way that it is with P25"
+        GROUP NXDNClients
+        DEPENDS NXDNCommons
         REQUIRED)

@@ -1,5 +1,6 @@
 set(SYSTEM_USER nxdn)
 
+include(cmake/debian-commons.cmake)
 include(cmake/debian-gateway.cmake)
 include(cmake/debian-parrot.cmake)
 include(cmake/debian-reflector.cmake)
@@ -17,17 +18,3 @@ set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
 
 set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
         "${CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA};${CMAKE_CURRENT_BINARY_DIR}/packaging/debian/control/postrm")
-
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/packaging/debian/nxdn.logrotate
-        ${CMAKE_CURRENT_BINARY_DIR}/packaging/debian/nxdn.logrotate
-        @ONLY)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/packaging/debian/nxdn.logrotate
-        DESTINATION ${DESTDIR}/etc/logrotate.d
-        PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
-        COMPONENT NXDNReflector)
-
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/NXDNReflector/NXDN.csv
-        DESTINATION ${CMAKE_INSTALL_LOCALSTATEDIR}/lib/${SYSTEM_USER}
-        PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
-        COMPONENT NXDNReflector)

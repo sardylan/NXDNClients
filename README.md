@@ -46,26 +46,34 @@ make package
 The created package will be inside the `build` directory, will be compiled for the same
 architecture of the machine running the build, and will have a name like:
 
-`nxdn_clients-<version>-<arch>.deb`
-
-At the moment, **only the Reflector** is configured to be assembled in a package.
+`NXDNclients-<version>-<arch>.deb`
 
 ### Install
 
 `deb` package can be installed on the usual way:
 
 ```bash
-dpkg -i nxdn_clients-<version>-<arch>.deb
+dpkg -i NXDNclients-<version>-<arch>.deb
 ```
 
 ### Configurations
 
 The package contains:
 
-- Reflector binary executable: `/usr/bin/NXDNReflector`
-- Configuration file: `/etc/nxdn/NXDNReflector.ini`
-- SystemD unit file: `/usr/lib/systemd/system/nxdn.service`
-- Log file: `/var/log/nxdn/NXDNReflector.log`
+- Clients binary executables:
+    - `/usr/bin/NXDNGateway`
+    - `/usr/bin/NXDNParrot`
+    - `/usr/bin/NXDNReflector`
+- Configuration files:
+    - `/etc/nxdn/NXDNGateway.ini`
+    - `/etc/nxdn/NXDNReflector.ini`
+- SystemD unit files:
+    -`/usr/lib/systemd/system/nxdn-gateway.service`
+    -`/usr/lib/systemd/system/nxdn-parrot.service`
+    -`/usr/lib/systemd/system/nxdn-reflector.service`
+- Common data files:
+    -`/var/lib/nxdn/NXDN.csv`
+    -`/var/lib/nxdn/NXDNHosts.txt`
 
 The system service is configured to run the following command:
 
