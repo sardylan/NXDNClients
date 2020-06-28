@@ -22,7 +22,7 @@ execute_process(COMMAND bash "${CMAKE_CURRENT_SOURCE_DIR}/cmake/git_version.sh"
         OUTPUT_VARIABLE GIT_TAG)
 string(REGEX REPLACE "\n$" "" GIT_TAG "${GIT_TAG}")
 
-set(NXDN_VERSION "0.9.0-git-${GIT_TAG}")
+set(NXDN_VERSION "0.9.1-git-${GIT_TAG}")
 message("NXDN Version: ${NXDN_VERSION}")
 
 add_subdirectory(NXDNGateway)
