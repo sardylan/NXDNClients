@@ -32,14 +32,14 @@ Must be enabled using `systemctl` command.
     - `/etc/nxdn/NXDNReflector.ini`
     - `/etc/nxdn/NXDNReflector.ini-vanilla`
 - SystemD unit files:
-    -`/usr/lib/systemd/system/nxdn-gateway.service`
-    -`/usr/lib/systemd/system/nxdn-parrot.service`
-    -`/usr/lib/systemd/system/nxdn-reflector.service`
+    - `/usr/lib/systemd/system/nxdn-gateway.service`
+    - `/usr/lib/systemd/system/nxdn-parrot.service`
+    - `/usr/lib/systemd/system/nxdn-reflector.service`
 - Environment files:
     - `/etc/default/nxdn-parrot`
 - Common data files:
-    -`/var/lib/nxdn/NXDN.csv`
-    -`/var/lib/nxdn/NXDNHosts.txt`
+    - `/var/lib/nxdn/NXDN.csv`
+    - `/var/lib/nxdn/NXDNHosts.txt`
 
 All binaries are under `/usr/bin` folder.
 
